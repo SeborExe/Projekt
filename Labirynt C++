@@ -1,55 +1,19 @@
 #include <iostream>
-
 #include <conio.h>
 #include <stdio.h>
 #include <string>
 #include <cstdlib>
 #include <cstdio>
 
-
 using namespace std;
 
-
 int pozycja_x = 0;
-
 int pozycja_y = 0;
-
 bool koniec = false;
-
 char ruch;
-
 char gracz = 'x';
 
-
-char mapa[10][10]=        
-
-{
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=0
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=1
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=2
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=3
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=4
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=5
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=6
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=7
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=8
-
-    ' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',    //y=9
-
-};
-
-
 char mapa1[10][10]=
-
 {
 
     ' ' , ' ' , ' ' , '|' , '|' , '-' , '-' , '-' , '-' , '\\' ,
@@ -75,7 +39,6 @@ char mapa1[10][10]=
 };
 
 char mapa2[20][20]=
-
 {
 
     ' ',' ','-','-','-','-','-','-','-','-','-','-','O','-','-','-','-','-','-','\\',
@@ -119,8 +82,8 @@ char mapa2[20][20]=
     '\\','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','/',
 
 };
-char mapa3[20][20]=
 
+char mapa3[20][20]=
 {
 
     ' ',' ','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','\\',
@@ -165,29 +128,21 @@ char mapa3[20][20]=
 
 };
 
-
 void gra1();
-
 void gra2();
-
 void gra3();
 
 int main()
 
 {
-
     system("cls");
-
     int wybor;
-
-    cout<<"       Labirynt      \n\n 1.Start\n 2.Wybierz gracza\n 3.Sterowanie\n 4.Wyjscie\n";
-
+    cout<<"       LABIRYNT     \n\n 1.Start gry\n 2.Wybierz gracza\n 3.Sterowanie\n 4.Wyjscie z Gry\n";
     cin>>wybor;
 
     switch(wybor)
 
     {
-
     case 1: system("cls"); gra1();
     break;
 
@@ -207,55 +162,39 @@ Wcisnij dowolny znak aby powrocic do menu";_getch();main();
 
 
 void gra1()
-
 {
 
     pozycja_x=0;
-
     pozycja_y=0;
-
     koniec=false;
 
     while(!koniec)
 
     {
-
         system("cls");
-
         for(int y=0; y<10; y++)
-
         {
-
             for(int x=0; x<10; x++)
 
             {
-
                 if(x==pozycja_x && y==pozycja_y)
 
                 {
-
                     cout<<gracz;
 
-                }//if
+                }
 
                 else
-
                 {
-
                     cout<<mapa1[y][x];
+                }
 
-                }//else
-
-            }//for
-
+            }
             cout<<"\n";
-
-        }//for
-
+        }
         ruch=_getch();
 
         switch(ruch)
-
         {
 
         case 'a': if(mapa1[pozycja_y][pozycja_x - 1]==' ' || mapa1[pozycja_y][pozycja_x - 1]=='O')\
@@ -276,69 +215,53 @@ void gra1()
 
         case 'q': main(); break;
 
-        }//switch
-
+        }
         if(mapa1[pozycja_y][pozycja_x]=='O')
 
         {
-
         koniec = true;
 
-        }//if
+        }
 
-    }//while
+    }
 
     gra2();
-
 }
-
-
 void gra2()
-
 {
 
     pozycja_x=0;
-
     pozycja_y=0;
-
     koniec=false;
 
     while(!koniec)
 
     {
-
         system("cls");
 
         for(int y=0; y<20; y++)
 
         {
-
             for(int x=0; x<20; x++)
 
             {
-
                 if(x==pozycja_x && y==pozycja_y)
 
                 {
-
                     cout<<gracz;
 
-                }//if
-
+                }
                 else
 
                 {
-
                     cout<<mapa2[y][x];
 
-                }//else
+                }
 
-            }//for
-
+            }
             cout<<"\n";
 
-        }//for
-
+        }
         ruch=_getch();
 
         switch(ruch)
@@ -363,69 +286,51 @@ void gra2()
 
         case 'q': main(); break;
 
-        }//switch
-
+        }
         if(mapa2[pozycja_y][pozycja_x]=='O')
 
         {
-
         koniec = true;
 
-        }//if
+        }
 
-    }//while
-
+    }
      gra3();
-
 }
-
-
 void gra3()
-
 {
 
     pozycja_x=0;
-
     pozycja_y=0;
-
     koniec=false;
 
     while(!koniec)
 
     {
-
         system("cls");
 
         for(int y=0; y<20; y++)
-
         {
-
             for(int x=0; x<20; x++)
 
             {
-
                 if(x==pozycja_x && y==pozycja_y)
 
                 {
-
                     cout<<gracz;
 
-                }//if
-
+                }
                 else
 
                 {
-
                     cout<<mapa3[y][x];
 
-                }//else
+                }
 
-            }//for
-
+            }
             cout<<"\n";
 
-        }//for
-
+        }
         ruch=_getch();
 
         switch(ruch)
@@ -450,18 +355,14 @@ void gra3()
 
         case 'q': main(); break;
 
-        }//switch
-
+        }
         if(mapa3[pozycja_y][pozycja_x]=='O')
 
         {
-
         koniec = true;
 
-        }//if
+        }
 
-    }//while
-
+    }
     main();
-
 }
